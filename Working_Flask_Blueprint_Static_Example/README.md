@@ -16,10 +16,10 @@ While using Flask to build a simple app without blueprints, it usually causes no
 
 ## So what are the most critical points to make of the example?
 - create the blueprint, WITH the name of the static folder specified in the format as shown:
-	> views_bp = Blueprint("views", __name__, template_folder="templates", static_folder="static")
+	> views_bp = Blueprint("views", \_\_name\_\_, template_folder="templates", static_folder="static")
 
 - in the html template, ".static" is used, NOT "static" -- so that it references the static file for the blueprint, and not from the ROOT of the web app
 	> <link rel="stylesheet" href="{{url_for('.static', filename='css/style.css')}}">
 
 - in the main app instance, DISABLE static folder by setting it to None -- so as to allow the blueprint's static folder to be used.
-	> app = Flask(__name__, static_folder=None)
+	> app = Flask(\_\_name\_\_, static_folder=None)
