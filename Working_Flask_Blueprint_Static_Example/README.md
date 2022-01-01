@@ -18,7 +18,7 @@ While using Flask to build a simple app without blueprints, it usually causes no
 - create the blueprint, WITH the name of the static folder specified in the format as shown:
 	> views_bp = Blueprint("views", \_\_name\_\_, template_folder="templates", static_folder="static")
 
-- in the html template, ".static" is used, NOT "static" -- so that it references the static file for the blueprint, and NOT from the root of the web app
+- in the html template, ".static" is used, NOT "static" -- so that it references the static file for the blueprint, and NOT from the root of the web app.
 	> <link rel="stylesheet" href="{{url_for('.static', filename='css/style.css')}}">
 
 - in the main app instance, DISABLE static folder by setting it to None -- so as to allow the blueprint's static folder to be used.
