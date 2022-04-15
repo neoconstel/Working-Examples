@@ -12,5 +12,5 @@ This example shows the working way to:
 ## Web resources which made figuring these out possible:
 - https://stackoverflow.com/questions/47316810/unable-to-locate-elements-on-webpage-with-headless-chrome (an overall idea of the problem with headless chrome failing and how to fix it)
 - https://intoli.com/blog/making-chrome-headless-undetectable/  (main info about setting user-agent -- link gotten from the thread in the stackoverflow link above)
-- https://www.youtube.com/watch?v=s9m6h1bLVIo (saving, loading and deleting cookies)
+- https://www.youtube.com/watch?v=s9m6h1bLVIo (saving, loading and deleting cookies in selenium)
 
