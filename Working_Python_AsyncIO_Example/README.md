@@ -8,12 +8,13 @@ Several coroutines can be in execution simultaneosly.
 Awaiting a coroutine using <await> causes subsequent lines of code to be blocked
 from execution till the result of the wait is reached. For this reason, a coroutine
 which shouldn't block normal execution should be created as a scheduled <task>.
-After a task is created, it should be awaited at the end of the "main" async
-function to ensure that the async loop does not quit until the task is completed.
+After a task is created, it begins running at the side and should be awaited at 
+the end of the "main" async function to ensure that the main async loop does 
+not quit until the task is completed.
 
-NOTE that an <await> statement does not block subsequent <await> statements.
-Therefore if line 13 has <await coroutine1> and line 14 has <await coroutine2>,
-coroutine2 will be set on await just as instantaneosly as coroutine1.
+NOTE that an <await> statement does not do anything if the task has already
+been completed, and thus is safe to use without worrying if it will start the 
+task again.
 
 The example here makes use of two coroutines of different speeds of completion
 in order to fully illustrate the point.

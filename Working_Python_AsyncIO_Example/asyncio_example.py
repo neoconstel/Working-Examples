@@ -24,7 +24,7 @@ async def main():
     task1 = asyncio.create_task(slow_func())
     task2 = asyncio.create_task(slower_func())
     
-    # await for the completion of each task. does not block a subsequent await
+    # await for the completion of each task.
     await task2
     await task1
 
@@ -32,4 +32,5 @@ async def main():
     print("main ends")  
 
 
+# run the main async function (which is the entry point of the entire async code)
 asyncio.run(main())
