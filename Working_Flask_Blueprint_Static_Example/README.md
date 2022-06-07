@@ -23,3 +23,16 @@ While using Flask to build a simple app without blueprints, it usually causes no
 
 - in the main app instance, DISABLE static folder by setting it to None -- so as to allow the blueprint's static folder to be used.
 	> app = Flask(\_\_name\_\_, static_folder=None)
+
+> The drawback to this method is that you can only use static files in blueprints, and not from anywhere else (such as the root directory), since the static_folder has been set to None. This removes the possibility of combining an overall css styling from a parent directory together with a blueprint's unique css styling.
+
+
+
+# Another Method (with url_prefix)
+- simply ensure that all blueprints have been registered with a url_prefix. A good convention for a suitable url_prefix is to use the view name
+>	e.g "/home"
+- ".static" (not "static") is also used in the html templates. The full syntax is actually blueprintname.static 
+> 	e.g href="{{url_for('home.static', filename='css/style.css'}}"
+
+
+> This method makes it possible to use an overall styling (non-blueprint) together with a blueprint styling. The only trade-off is that url_prefixes must be used.
