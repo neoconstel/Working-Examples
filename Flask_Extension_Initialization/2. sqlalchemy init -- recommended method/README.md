@@ -15,4 +15,10 @@
 The database is created only if none exists but to be on the safe side, it would be wise to check and ensure the database doesn't exist before creating it.
 	
 
-A thing of note is that because we're using the app factory pattern, we can't straightforwardly add anything (say a User instance called user) to the database via terminal using db.session.add(user) -- even though it is possible by creating an app context via some advanced "push" technique. Instead, we have to place such database functionality in a view function (as shown in the create_user function of the user view) and it works perfectly.
+A thing of note is that because we're using the app factory pattern, we can't straightforwardly add anything (say, a User model instance called "user") to the database via an ordinary python terminal session using db.session.add(user). Instead, we have to place such database functionality in a view function (as shown in the create_user function of the user view) and it works perfectly.
+Still yet, there is a simple method to interact with the database via terminal: in the very directory where the app entry file (e.g run.py) is:
+>set the flask app environment variable: __export FLASK_APP=run__
+
+>run the flask app in an interactive shell, thus providing an app context: __flask shell__
+
+After that, proceed in manually interacting with the database and use a simple tool like sqlite3 to confirm that the contents of the database are as expected.
